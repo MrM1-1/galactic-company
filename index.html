@@ -307,7 +307,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
 </div>
 <div class="series-locked-overlay" id="series-locked-overlay" onclick="closeSeriesLocked()">
   <div class="locked-box" onclick="event.stopPropagation()">
-    <h2>YOU ARE NOT READY<br>TO SEE THE MORE</h2>
+    <h2>YOU ARE NOT READY<br>TO SEE MORE</h2>
     <p>This series remains hidden. The truth will reveal itself in time.</p>
     <button class="locked-close" onclick="closeSeriesLocked()">Turn Back</button>
   </div>
@@ -350,7 +350,7 @@ const SERIES = [
       { id:"desc1", name:"Jackie Bonecroft: Descendant", status:"NOT STARTED YET", pct:3, steam:"", chars:[], regions:[], lore:"" },
     ]
   },
-  { id:"void", name:"The Void Series", theme:"theme-void", locked:false,
+  { id:"void", name:"The Void Series", theme:"theme-void", locked:true,
     games:[
       { id:"void1", name:"Jack Bonecroft: Into a Void", status:"NOT STARTED YET", pct:3, steam:"", chars:[], regions:[], lore:"" },
     ]
@@ -514,7 +514,7 @@ function buildSeriesList(){
       </div>
       <div class="series-games">
         ${s.locked
-          ?`<div class="game-row" onclick="showSeriesLocked()"><div class="game-row-name" style="color:var(--text-dim);font-style:italic;">YOU ARE NOT READY TO SEE THE MORE</div></div>`
+          ?`<div class="game-row" onclick="showSeriesLocked()"><div class="game-row-name" style="color:var(--text-dim);font-style:italic;">YOU ARE NOT READY TO SEE MORE</div></div>`
           :s.games.map(g=>`<div class="game-row" onclick="openGame('${g.id}','${s.id}')"><div class="game-row-name">${g.name}</div><div class="game-row-status${g.status==="READY TO PLAY"?" ready":""}">${g.status}</div></div>`).join("")
         }
       </div>
