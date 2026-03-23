@@ -409,19 +409,6 @@ function newRaven(){
     vx:side*(.6+Math.random()*.8),vy:(Math.random()-.5)*.2,
     wing:0,wingDir:1,size:10+Math.random()*8,opacity:.25+Math.random()*.35};
 }
-function drawRaven(r){
-  ctx.save();ctx.translate(r.x,r.y);ctx.globalAlpha=r.opacity;ctx.strokeStyle="#b07fd4";ctx.lineWidth=1.2;
-  // body
-  ctx.beginPath();ctx.ellipse(0,0,r.size*.6,r.size*.25,0,0,Math.PI*2);ctx.stroke();
-  // wings
-  const wf=Math.sin(r.wing)*.6;
-  ctx.beginPath();ctx.moveTo(-r.size*.3,0);ctx.quadraticCurveTo(-r.size*.8,-r.size*(1+wf),0,-r.size*.1);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(r.size*.3,0);ctx.quadraticCurveTo(r.size*.8,-r.size*(1+wf),0,-r.size*.1);ctx.stroke();
-  // head + beak
-  ctx.beginPath();ctx.arc(r.size*.55,0,r.size*.2,0,Math.PI*2);ctx.stroke();
-  ctx.beginPath();ctx.moveTo(r.size*.72,-r.size*.05);ctx.lineTo(r.size*.9,0);ctx.stroke();
-  ctx.restore();
-}
 function drawMist(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
   mistP.forEach(p=>{
