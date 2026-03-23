@@ -367,14 +367,14 @@ window.addEventListener("resize",resizeCanvas);resizeCanvas();
 let eLines=[];
 function initEternal(){
   eLines=[];
-  const count=12;
+  const count=22;
   for(let i=0;i<count;i++){
     eLines.push({
       y: Math.random()*canvas.height,
-      x: Math.random()*canvas.width - canvas.width, // start off-screen left
+      x: Math.random()*canvas.width, // start anywhere on screen — visible immediately
       speed: 0.25 + Math.random()*0.45,
       width: 60 + Math.random()*180,
-      opacity: 0.12 + Math.random()*0.25,
+      opacity: 0.15 + Math.random()*0.28,
       thick: 0.8 + Math.random()*1.2
     });
   }
