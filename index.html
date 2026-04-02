@@ -198,7 +198,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
       <button class="nav-tab"        id="tab-contact" onclick="showPage('contact')">Contact</button>
     </div>
     <span class="nav-owner">Owner: <span>Mr. M</span></span>
-    <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Menu">
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -581,6 +581,8 @@ function showSeriesLocked(){document.getElementById(“series-locked-overlay”)
 function closeSeriesLocked(){document.getElementById(“series-locked-overlay”).classList.remove(“show”);}
 
 // INIT
+document.getElementById(“hamburger”).addEventListener(“click”, toggleDrawer);
+document.getElementById(“hamburger”).addEventListener(“touchend”, function(e){e.preventDefault();toggleDrawer();});
 buildSeriesList();buildSinglesList();buildOtherList();
 </script>
 
