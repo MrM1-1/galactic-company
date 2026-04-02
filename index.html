@@ -5,8 +5,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galactic Company Core Division</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Special+Elite&family=Spectral:ital,wght@0,400;0,600;1,400&family=Exo+2:wght@300;400;600&family=Crimson+Pro:ital,wght@0,400;1,400&family=Metamorphous&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#080810;--panel:#111120;--border:#222238;--accent:#c8a96e;--accent2:#8b6f3a;--accent-glow:rgba(200,169,110,0.15);--text:#d4cfc8;--text-dim:#7a7580;--font-body:"EB Garamond",serif;--font-title:"Cinzel Decorative",serif;--font-ui:"Cinzel",serif;}
@@ -16,177 +14,161 @@
 .theme-descendant{--accent:#b07fd4;--accent2:#5a3475;--accent-glow:rgba(160,100,210,0.2);--bg:#080610;--panel:#110d18;--border:#261640;--font-body:"Spectral",serif;--font-title:"Spectral",serif;}
 .theme-void     {--accent:#5bc8d8;--accent2:#1a6070;--accent-glow:rgba(80,190,210,0.2);--bg:#050810;--panel:#080e14;--border:#102030;--font-body:"Exo 2",sans-serif;--font-title:"Exo 2",sans-serif;}
 .theme-exiled   {--accent:#6dc87a;--accent2:#2a6035;--accent-glow:rgba(90,190,110,0.2);--bg:#050a06;--panel:#080e0a;--border:#122018;--font-body:"Crimson Pro",serif;--font-title:"Uncial Antiqua",cursive;}
-
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;background:#080810;}
-body{background:#080810;background:var(–bg);color:#d4cfc8;color:var(–text);font-family:var(–font-body);font-size:18px;line-height:1.7;overflow-x:hidden;transition:background 0.8s,color 0.5s;}
-body::before{content:””;position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 50% -5%,var(–accent-glow),transparent 55%);transition:background 0.8s;}
-
+body{background:#080810;background:var(--bg);color:#d4cfc8;color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.7;overflow-x:hidden;transition:background 0.8s,color 0.5s;}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 70% 50% at 50% -5%,var(--accent-glow),transparent 55%);transition:background 0.8s;}
 #fx-canvas{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1s;}
 #fx-canvas.show{opacity:1;}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(–border);transition:border-color 0.8s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:border-color 0.8s;}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:60px;}
 .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;cursor:pointer;flex-shrink:0;}
 .nav-logo img{height:28px;width:auto;}
-.nav-logo-text{font-family:var(–font-title);font-size:0.65rem;font-weight:700;letter-spacing:0.18em;color:var(–text);transition:color 0.8s;white-space:nowrap;}
-.nav-logo-text span{color:var(–accent);transition:color 0.8s;}
-.nav-owner{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(–text-dim);white-space:nowrap;flex-shrink:0;}
-.nav-owner span{color:var(–accent);transition:color 0.8s;}
+.nav-logo-text{font-family:var(--font-title);font-size:0.65rem;font-weight:700;letter-spacing:0.18em;color:var(--text);transition:color 0.8s;white-space:nowrap;}
+.nav-logo-text span{color:var(--accent);transition:color 0.8s;}
+.nav-owner{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim);white-space:nowrap;flex-shrink:0;}
+.nav-owner span{color:var(--accent);transition:color 0.8s;}
 .nav-tabs{display:flex;flex:1;justify-content:center;}
-.nav-tab{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0 0.9rem;height:60px;display:flex;align-items:center;color:var(–text-dim);background:none;border:none;cursor:pointer;position:relative;transition:color 0.3s;white-space:nowrap;}
-.nav-tab::after{content:””;position:absolute;bottom:0;left:10%;right:10%;height:2px;background:var(–accent);transform:scaleX(0);transition:transform 0.3s,background 0.8s;}
-.nav-tab.active{color:var(–accent);}
+.nav-tab{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0 0.9rem;height:60px;display:flex;align-items:center;color:var(--text-dim);background:none;border:none;cursor:pointer;position:relative;transition:color 0.3s;white-space:nowrap;}
+.nav-tab::after{content:"";position:absolute;bottom:0;left:10%;right:10%;height:2px;background:var(--accent);transform:scaleX(0);transition:transform 0.3s,background 0.8s;}
+.nav-tab.active{color:var(--accent);}
 .nav-tab.active::after{transform:scaleX(1);}
-.nav-tab:hover{color:var(–text);}
+.nav-tab:hover{color:var(--text);}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;flex-shrink:0;}
-.nav-hamburger span{width:22px;height:2px;background:#d4cfc8;background:var(–text);display:block;transition:all 0.3s;}
-.nav-drawer{display:none;flex-direction:column;border-top:1px solid var(–border);}
+.nav-hamburger span{width:22px;height:2px;background:#d4cfc8;background:var(--text);display:block;transition:all 0.3s;}
+.nav-drawer{display:none;flex-direction:column;border-top:1px solid var(--border);}
 .nav-drawer.open{display:flex;}
 .nav-drawer .nav-tab{height:48px;padding:0 1.5rem;border-bottom:1px solid rgba(255,255,255,0.04);}
 .nav-drawer .nav-tab::after{display:none;}
-.nav-drawer .nav-tab.active{color:var(–accent);background:rgba(255,255,255,0.025);}
+.nav-drawer .nav-tab.active{color:var(--accent);background:rgba(255,255,255,0.025);}
 @media(max-width:720px){
-.nav-tabs{display:none;}
-.nav-hamburger{display:flex;}
-.nav-owner{display:none;}
-.nav-inner{padding:0 1.2rem;}
+  .nav-tabs{display:none;}
+  .nav-hamburger{display:flex;}
+  .nav-owner{display:none;}
+  .nav-inner{padding:0 1.2rem;}
 }
-
 .page{display:none;position:relative;z-index:2;min-height:100vh;padding-top:60px;}
 .page.active{display:block;}
 #page-home{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.6rem;padding:60px 2rem 4rem;min-height:100vh;}
 #page-home.active{display:flex !important;}
-
 .home-logo-wrap{position:relative;animation:floatY 5s ease-in-out infinite;}
-.home-logo-wrap::after{content:””;position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);width:90px;height:16px;background:radial-gradient(ellipse,rgba(204,51,51,0.45),transparent 70%);filter:blur(5px);}
+.home-logo-wrap::after{content:"";position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);width:90px;height:16px;background:radial-gradient(ellipse,rgba(204,51,51,0.45),transparent 70%);filter:blur(5px);}
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .home-logo{height:120px;filter:drop-shadow(0 0 28px rgba(204,51,51,0.55));}
-.home-eyebrow{font-family:var(–font-ui);font-size:0.62rem;letter-spacing:0.4em;text-transform:uppercase;color:#cc3333;}
-.home-title{font-family:var(–font-title);font-size:clamp(1.6rem,4.5vw,3.2rem);font-weight:700;color:#d4cfc8;color:var(–text);line-height:1.2;}
-.home-title span{color:#c8a96e;color:var(–accent);}
-.home-divider{width:130px;height:1px;background:linear-gradient(90deg,transparent,var(–accent2),transparent);}
-.home-owner-card{display:inline-flex;align-items:center;gap:1.2rem;border:1px solid var(–border);background:var(–panel);padding:0.6rem 2rem;}
-.home-owner-label{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(–text-dim);}
-.home-owner-name{font-family:var(–font-ui);font-size:0.82rem;font-weight:600;letter-spacing:0.15em;color:var(–accent);}
-.home-desc{max-width:520px;color:var(–text-dim);font-style:italic;font-size:1rem;}
+.home-eyebrow{font-family:var(--font-ui);font-size:0.62rem;letter-spacing:0.4em;text-transform:uppercase;color:#cc3333;}
+.home-title{font-family:var(--font-title);font-size:clamp(1.6rem,4.5vw,3.2rem);font-weight:700;color:#d4cfc8;color:var(--text);line-height:1.2;}
+.home-title span{color:#c8a96e;color:var(--accent);}
+.home-divider{width:130px;height:1px;background:linear-gradient(90deg,transparent,var(--accent2),transparent);}
+.home-owner-card{display:inline-flex;align-items:center;gap:1.2rem;border:1px solid var(--border);background:var(--panel);padding:0.6rem 2rem;}
+.home-owner-label{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);}
+.home-owner-name{font-family:var(--font-ui);font-size:0.82rem;font-weight:600;letter-spacing:0.15em;color:var(--accent);}
+.home-desc{max-width:520px;color:var(--text-dim);font-style:italic;font-size:1rem;}
 .yt-home{display:flex;flex-direction:column;align-items:center;gap:0.6rem;margin-top:0.4rem;}
-.yt-home-label{font-family:var(–font-ui);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(–text-dim);}
+.yt-home-label{font-family:var(--font-ui);font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);}
 .yt-links{display:flex;gap:0.8rem;align-items:center;flex-wrap:wrap;justify-content:center;}
-.yt-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#7a7580;color:var(–text-dim);text-decoration:none;border:1px solid #222238;border:1px solid var(–border);padding:0.5rem 1.1rem;transition:all 0.3s;}
+.yt-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:#7a7580;color:var(--text-dim);text-decoration:none;border:1px solid #222238;border:1px solid var(--border);padding:0.5rem 1.1rem;transition:all 0.3s;}
 .yt-btn:hover{border-color:#ff4444;color:#ff4444;}
-
 .std-wrap{max-width:860px;margin:0 auto;padding:3rem 1.5rem;}
 .sec-head{text-align:center;margin-bottom:2.5rem;}
-.sec-head h2{font-family:var(–font-title);font-size:1.3rem;color:var(–accent);margin-bottom:0.4rem;transition:color 0.8s;}
-.sec-head p{font-family:var(–font-ui);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(–text-dim);}
-.sec-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(–accent),transparent);margin:1rem auto 0;transition:background 0.8s;}
+.sec-head h2{font-family:var(--font-title);font-size:1.3rem;color:var(--accent);margin-bottom:0.4rem;transition:color 0.8s;}
+.sec-head p{font-family:var(--font-ui);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);}
+.sec-rule{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:1rem auto 0;transition:background 0.8s;}
 .series-list{display:flex;flex-direction:column;gap:0.7rem;}
-.series-item{border:1px solid var(–border);background:var(–panel);overflow:hidden;transition:border-color 0.4s,box-shadow 0.4s;}
-.series-item.theme-hover{border-color:var(–accent);box-shadow:0 0 24px var(–accent-glow);}
+.series-item{border:1px solid var(--border);background:var(--panel);overflow:hidden;transition:border-color 0.4s,box-shadow 0.4s;}
+.series-item.theme-hover{border-color:var(--accent);box-shadow:0 0 24px var(--accent-glow);}
 .series-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;cursor:pointer;transition:background 0.3s;}
 .series-header:hover{background:rgba(255,255,255,0.02);}
-.series-name{font-family:var(–font-title);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(–accent);transition:color 0.8s,font-family 0.3s;}
-.series-chevron{color:var(–text-dim);font-size:0.8rem;transition:transform 0.3s;}
+.series-name{font-family:var(--font-title);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);transition:color 0.8s;}
+.series-chevron{color:var(--text-dim);font-size:0.8rem;transition:transform 0.3s;}
 .series-item.open .series-chevron{transform:rotate(180deg);}
-.series-games{display:none;border-top:1px solid var(–border);}
+.series-games{display:none;border-top:1px solid var(--border);}
 .series-item.open .series-games{display:block;}
 .game-row{padding:0.75rem 1.4rem 0.75rem 2rem;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background 0.25s;}
 .game-row:last-child{border-bottom:none;}
 .game-row:hover{background:rgba(255,255,255,0.03);}
-.game-row-name{font-family:var(–font-ui);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(–text);}
-.game-row-status{font-family:var(–font-ui);font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.12rem 0.5rem;border:1px solid var(–border);color:var(–text-dim);}
+.game-row-name{font-family:var(--font-ui);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);}
+.game-row-status{font-family:var(--font-ui);font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.12rem 0.5rem;border:1px solid var(--border);color:var(--text-dim);}
 .game-row-status.ready{color:#6dc87a;border-color:#2a6035;}
 .singles-header{margin:2.5rem 0 1.2rem;text-align:center;}
-.singles-header h3{font-family:var(–font-title);font-size:1rem;color:var(–accent);margin-bottom:0.3rem;transition:color 0.8s;}
-.singles-header p{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(–text-dim);}
-.singles-rule{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(–accent),transparent);margin:0.7rem auto 1.2rem;}
+.singles-header h3{font-family:var(--font-title);font-size:1rem;color:var(--accent);margin-bottom:0.3rem;transition:color 0.8s;}
+.singles-header p{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);}
+.singles-rule{width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);margin:0.7rem auto 1.2rem;}
 .game-wrap{max-width:800px;margin:0 auto;padding:2rem 1.5rem;}
-.game-back{font-family:var(–font-ui);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(–text-dim);background:none;border:none;cursor:pointer;margin-bottom:2rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;}
-.game-back:hover{color:var(–accent);}
-.game-title-big{font-family:var(–font-title);font-size:clamp(1rem,3vw,1.9rem);color:var(–accent);margin-bottom:0.3rem;line-height:1.3;transition:color 0.8s;}
-.game-series-tag{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(–text-dim);margin-bottom:1.5rem;}
-.game-rule{width:45px;height:1px;background:var(–accent2);margin-bottom:1.8rem;transition:background 0.8s;}
-.status-block{border:1px solid var(–border);background:var(–panel);padding:1.2rem 1.5rem;margin-bottom:2rem;transition:border-color 0.8s,background 0.8s;}
-.status-label{font-family:var(–font-ui);font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(–text-dim);margin-bottom:0.5rem;}
-.status-value{font-family:var(–font-ui);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(–accent);margin-bottom:0.9rem;transition:color 0.8s;}
+.game-back{font-family:var(--font-ui);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);background:none;border:none;cursor:pointer;margin-bottom:2rem;display:flex;align-items:center;gap:0.5rem;transition:color 0.3s;}
+.game-back:hover{color:var(--accent);}
+.game-title-big{font-family:var(--font-title);font-size:clamp(1rem,3vw,1.9rem);color:var(--accent);margin-bottom:0.3rem;line-height:1.3;transition:color 0.8s;}
+.game-series-tag{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1.5rem;}
+.game-rule{width:45px;height:1px;background:var(--accent2);margin-bottom:1.8rem;transition:background 0.8s;}
+.status-block{border:1px solid var(--border);background:var(--panel);padding:1.2rem 1.5rem;margin-bottom:2rem;transition:border-color 0.8s,background 0.8s;}
+.status-label{font-family:var(--font-ui);font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem;}
+.status-value{font-family:var(--font-ui);font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:0.9rem;transition:color 0.8s;}
 .status-value.ready{color:#6dc87a;}
-.progress-track{height:3px;background:var(–border);}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(–accent2),var(–accent));transition:width 1.2s cubic-bezier(.4,0,.2,1),background 0.8s;}
-.progress-pct{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.1em;color:var(–text-dim);margin-top:0.4rem;}
-.steam-link{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(–font-ui);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#6dc87a;border:1px solid #2a6035;padding:0.55rem 1.3rem;text-decoration:none;transition:background 0.3s,color 0.3s;margin-top:0.8rem;}
+.progress-track{height:3px;background:var(--border);}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width 1.2s cubic-bezier(.4,0,.2,1),background 0.8s;}
+.progress-pct{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.1em;color:var(--text-dim);margin-top:0.4rem;}
+.steam-link{display:inline-flex;align-items:center;gap:0.6rem;font-family:var(--font-ui);font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:#6dc87a;border:1px solid #2a6035;padding:0.55rem 1.3rem;text-decoration:none;transition:background 0.3s,color 0.3s;margin-top:0.8rem;}
 .steam-link:hover{background:#2a6035;color:#fff;}
-.game-tabs{display:flex;border-bottom:1px solid var(–border);margin-bottom:1.5rem;transition:border-color 0.8s;overflow-x:auto;}
-.game-tab{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1rem;background:none;border:none;color:var(–text-dim);cursor:pointer;position:relative;transition:color 0.3s;white-space:nowrap;}
-.game-tab::after{content:””;position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(–accent);transform:scaleX(0);transition:transform 0.3s,background 0.8s;}
-.game-tab.active{color:var(–accent);}
+.game-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:1.5rem;transition:border-color 0.8s;overflow-x:auto;}
+.game-tab{font-family:var(--font-ui);font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.55rem 1rem;background:none;border:none;color:var(--text-dim);cursor:pointer;position:relative;transition:color 0.3s;white-space:nowrap;}
+.game-tab::after{content:"";position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transition:transform 0.3s,background 0.8s;}
+.game-tab.active{color:var(--accent);}
 .game-tab.active::after{transform:scaleX(1);}
 .game-tab-content{display:none;padding-top:0.5rem;}
 .game-tab-content.active{display:block;}
-.game-section-body{color:var(–text-dim);font-size:1rem;line-height:1.75;}
+.game-section-body{color:var(--text-dim);font-size:1rem;line-height:1.75;}
 .char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
-.char-card{border:1px solid var(–border);background:var(–panel);padding:1.2rem;transition:border-color 0.3s,background 0.8s;}
-.char-card:hover{border-color:var(–accent2);}
-.char-name{font-family:var(–font-ui);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(–accent);margin-bottom:0.15rem;transition:color 0.8s;}
-.char-alias{font-size:0.82rem;color:var(–text-dim);font-style:italic;margin-bottom:0.5rem;}
-.char-desc{font-size:0.88rem;color:var(–text-dim);line-height:1.6;}
+.char-card{border:1px solid var(--border);background:var(--panel);padding:1.2rem;transition:border-color 0.3s,background 0.8s;}
+.char-card:hover{border-color:var(--accent2);}
+.char-name{font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:0.15rem;transition:color 0.8s;}
+.char-alias{font-size:0.82rem;color:var(--text-dim);font-style:italic;margin-bottom:0.5rem;}
+.char-desc{font-size:0.88rem;color:var(--text-dim);line-height:1.6;}
 .geo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:0.5rem;}
-.geo-card{border:1px solid var(–border);background:var(–panel);padding:1.1rem 1.3rem;transition:border-color 0.3s,background 0.8s;}
-.geo-card:hover{border-color:var(–accent2);}
-.geo-name{font-family:var(–font-ui);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(–accent);margin-bottom:0.4rem;transition:color 0.8s;}
-.geo-desc{font-size:0.85rem;color:var(–text-dim);font-style:italic;line-height:1.6;}
+.geo-card{border:1px solid var(--border);background:var(--panel);padding:1.1rem 1.3rem;transition:border-color 0.3s,background 0.8s;}
+.geo-card:hover{border-color:var(--accent2);}
+.geo-name{font-family:var(--font-ui);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:0.4rem;transition:color 0.8s;}
+.geo-desc{font-size:0.85rem;color:var(--text-dim);font-style:italic;line-height:1.6;}
 .locked-overlay,.series-locked-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;}
 .locked-overlay.show,.series-locked-overlay.show{opacity:1;pointer-events:all;}
 .locked-box{text-align:center;padding:2.5rem;border:1px solid rgba(204,51,51,0.35);max-width:420px;margin:1rem;}
-.locked-box h2{font-family:var(–font-title);font-size:1.1rem;color:#cc3333;margin-bottom:1rem;line-height:1.4;}
-.locked-box p{font-size:1rem;color:var(–text-dim);font-style:italic;margin-bottom:1.8rem;}
-.locked-close{font-family:var(–font-ui);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(–text-dim);background:none;border:1px solid var(–border);padding:0.55rem 1.4rem;cursor:pointer;transition:all 0.3s;}
-.locked-close:hover{border-color:var(–accent);color:var(–accent);}
+.locked-box h2{font-family:var(--font-title);font-size:1.1rem;color:#cc3333;margin-bottom:1rem;line-height:1.4;}
+.locked-box p{font-size:1rem;color:var(--text-dim);font-style:italic;margin-bottom:1.8rem;}
+.locked-close{font-family:var(--font-ui);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);background:none;border:1px solid var(--border);padding:0.55rem 1.4rem;cursor:pointer;transition:all 0.3s;}
+.locked-close:hover{border-color:var(--accent);color:var(--accent);}
 .other-list{display:flex;flex-direction:column;gap:0.7rem;}
-.other-card{border:1px solid var(–border);background:var(–panel);padding:1rem 1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.3s,transform 0.25s;}
-.other-card:hover{border-color:var(–accent2);}
-.other-card-name{font-family:var(–font-ui);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(–text);}
-.other-card-type{font-size:0.85rem;color:var(–text-dim);font-style:italic;margin-top:0.15rem;}
+.other-card{border:1px solid var(--border);background:var(--panel);padding:1rem 1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.3s;}
+.other-card:hover{border-color:var(--accent2);}
+.other-card-name{font-family:var(--font-ui);font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text);}
+.other-card-type{font-size:0.85rem;color:var(--text-dim);font-style:italic;margin-top:0.15rem;}
 .about-text{max-width:680px;margin:0 auto 2.5rem;}
-.about-text p{color:var(–text-dim);font-size:1rem;margin-bottom:1.2rem;line-height:1.8;}
-.about-text strong{color:var(–text);}
+.about-text p{color:var(--text-dim);font-size:1rem;margin-bottom:1.2rem;line-height:1.8;}
+.about-text strong{color:var(--text);}
 .about-logo-center{display:flex;justify-content:center;margin-bottom:2rem;}
 .about-logo-center img{height:100px;filter:drop-shadow(0 0 25px rgba(204,51,51,0.5));}
-.about-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(–border),transparent);margin:2.5rem 0;}
+.about-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:2.5rem 0;}
 .mrm-section{display:grid;grid-template-columns:170px 1fr;gap:2rem;align-items:start;max-width:680px;margin:0 auto;}
 .mrm-photo{width:170px;height:auto;filter:drop-shadow(0 0 20px rgba(204,51,51,0.5));}
-.mrm-info h3{font-family:var(–font-title);font-size:1rem;color:var(–accent);margin-bottom:0.3rem;transition:color 0.8s;}
-.mrm-role{font-family:var(–font-ui);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(–text-dim);margin-bottom:1rem;}
-.mrm-bio{color:var(–text-dim);font-size:1rem;line-height:1.75;}
+.mrm-info h3{font-family:var(--font-title);font-size:1rem;color:var(--accent);margin-bottom:0.3rem;transition:color 0.8s;}
+.mrm-role{font-family:var(--font-ui);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1rem;}
+.mrm-bio{color:var(--text-dim);font-size:1rem;line-height:1.75;}
 @media(max-width:560px){.mrm-section{grid-template-columns:1fr}.mrm-photo{width:120px;}}
 .contact-center{max-width:480px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
-.contact-intro{color:var(–text-dim);font-size:1rem;line-height:1.75;font-style:italic;}
-.email-block{display:flex;align-items:center;gap:0.9rem;border:1px solid var(–border);background:var(–panel);padding:1.1rem 1.8rem;cursor:pointer;transition:border-color 0.3s,box-shadow 0.3s;}
-.email-block:hover{border-color:var(–accent);box-shadow:0 0 18px var(–accent-glow);}
-.email-icon{font-size:1.3rem;color:var(–accent);}
-.email-address{font-family:var(–font-ui);font-size:0.78rem;letter-spacing:0.1em;color:var(–text);}
-.email-hint{font-family:var(–font-ui);font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:var(–text-dim);margin-left:0.4rem;}
-.email-copied{font-family:var(–font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#6dc87a;display:none;}
+.contact-intro{color:var(--text-dim);font-size:1rem;line-height:1.75;font-style:italic;}
+.email-block{display:flex;align-items:center;gap:0.9rem;border:1px solid var(--border);background:var(--panel);padding:1.1rem 1.8rem;cursor:pointer;transition:border-color 0.3s,box-shadow 0.3s;}
+.email-block:hover{border-color:var(--accent);box-shadow:0 0 18px var(--accent-glow);}
+.email-icon{font-size:1.3rem;color:var(--accent);}
+.email-address{font-family:var(--font-ui);font-size:0.78rem;letter-spacing:0.1em;color:var(--text);}
+.email-hint{font-family:var(--font-ui);font-size:0.52rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-dim);margin-left:0.4rem;}
+.email-copied{font-family:var(--font-ui);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:#6dc87a;display:none;}
 .email-copied.show{display:block;}
-.email-open{font-family:var(–font-ui);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(–text-dim);text-decoration:none;border-bottom:1px solid var(–border);padding-bottom:2px;transition:color 0.3s,border-color 0.3s;}
-.email-open:hover{color:var(–accent);border-color:var(–accent);}
+.email-open{font-family:var(--font-ui);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:2px;transition:color 0.3s,border-color 0.3s;}
+.email-open:hover{color:var(--accent);border-color:var(--accent);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fadein{animation:fadeUp 0.5s ease both;}
-::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(–bg)}::-webkit-scrollbar-thumb{background:var(–border)}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border)}
 </style>
-
 </head>
 <body class="theme-default">
 <canvas id="fx-canvas"></canvas>
-<!-- font preload triggers -->
-<div style="position:absolute;opacity:0;pointer-events:none;font-size:1px;">
-  <span style="font-family:'Metamorphous',cursive;">.</span>
-  <span style="font-family:'Uncial Antiqua',cursive;">.</span>
-  <span style="font-family:'Special Elite',cursive;">.</span>
-  <span style="font-family:'Spectral',serif;">.</span>
-  <span style="font-family:'Exo 2',sans-serif;">.</span>
-  <span style="font-family:'Crimson Pro',serif;">.</span>
-</div>
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" onclick="showPage('home');closeDrawer()">
@@ -289,11 +271,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
       <p class="contact-intro">Have a question or just want to say hello? Reach us directly by email.</p>
       <div class="email-block" onclick="copyEmail()">
         <span class="email-icon">&#9993;</span>
-        <span class="email-address"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="076a6675716e69687464686a7766697e47606a666e6b2964686a">[email&#160;protected]</a></span>
+        <span class="email-address">marvinoscompany@gmail.com</span>
         <span class="email-hint">click to copy</span>
       </div>
       <div class="email-copied" id="email-copied">&#10003; Email copied to clipboard!</div>
-      <a class="email-open" href="/cdn-cgi/l/email-protection#e885899a9e8186879b8b878598898691a88f85898184c68b8785">Open in email client &rarr;</a>
+      <a class="email-open" href="mailto:marvinoscompany@gmail.com">Open in email client &rarr;</a>
     </div>
   </div>
 </div>
@@ -313,163 +295,188 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 
 const SERIES = [
-{ id:“eternal”, name:“The Eternal Conquest Series”, theme:“theme-eternal”, locked:false,
-games:[
-{ id:“jb1”, name:“Jack Bonecroft 1”,              status:“PREPARING SCRIPT & RESOURCES”, pct:5,  steam:””, chars:[], regions:[], lore:”” },
-{ id:“jb2”, name:“Jack Bonecroft 2”,              status:“NOT STARTED YET”,              pct:2,  steam:””, chars:[], regions:[], lore:”” },
-{ id:“jb3”, name:“Jack Bonecroft 3”,              status:“NOT STARTED YET”,              pct:2,  steam:””, chars:[], regions:[], lore:”” },
-{ id:“jb4”, name:“Jack Bonecroft 4”,              status:“PRE-ALPHA STAGE”,              pct:60, steam:””,
-chars:[
-{ name:“Lunara Mistwalker”, alias:””, desc:“Determined and resourceful woman for a different dimension, navigating an unfamiliar world with intelligence and courage, driven by a mission to restore a fallen hero and confront an inevitable.” },
-{ name:“L.U.M.I.R.”, alias:“Lightweight Mobile Inventory & Response Unit”, desc:“The AI assistant of Maelis Foster. It aids in navigation, translation, journaling, and quest marking. Although limited due to not being connected to the main core, Lumir provides humorous comments about travels and current events, along with tutorial guidance. It charges via sunlight.” },
-],
-regions:[
-{ name:“Valeria”,    desc:“Sunlight and abundance, trade and craftsmanship, a kingdom that built its prosperity on cooperation and maintains it the same way. Queen Rosamere Stormkeep governs a place that takes its own stated values seriously enough to actually live by them most of the time. The coastline gives it reach that the landlocked kingdoms don’t have.” },
-{ name:“Thronveil”,  desc:“Dense forest, arcane energy, a kingdom of Sylvari that moves at its own pace regardless of what the rest of the continent is doing. Queen Sylphira Nightbloom’s realm is the most internally coherent of the four and the most difficult to understand from outside it. Luminalis glows with a light that doesn’t come entirely from the sun.” },
-{ name:“Drakenscar”, desc:“Crystal and fog, harsh terrain, a kingdom where the land itself shapes the people more visibly than anywhere else on the continent. Queen Varanya Darkthorn rules a place that produces resilience as its primary export whether it means to or not. Mythalen rises from black stone cliffs and the settlements beyond it survive by knowing exactly what they’re up against.” },
-{ name:“Voltaris”,   desc:“Smoke and precision, crystal-powered machinery, the relentless logic of a place that decided progress was the highest virtue and organized everything around that decision. Queen Marcelline Steelforge’s kingdom produces things no other region can and operates at a pace no other region matches.” },
-],
-lore:“Enter a mysterious and magical world as Lunara Mistwalker, an outsider pushed into a realm full of secrets, ancient histories, and hidden powers. Explore villages, libraries, and untamed landscapes as you uncover the stories of legendary figures and uncover paths that could change the fate of the land and universe. Solve puzzles, gather mystical artifacts, and navigate challenges that will test both your courage and intelligence in a journey where every choice matters.”
-},
-{ id:“jb5”, name:“Jack Bonecroft 5”,              status:“NOT STARTED YET”, pct:2, steam:””, chars:[], regions:[], lore:”” },
-{ id:“jb6”, name:“Jack Bonecroft 6 — The Return”, status:“NOT STARTED YET”, pct:2, steam:””, chars:[], regions:[], lore:”” },
-{ id:“jb7”, name:“Jack Bonecroft 7 — Unification”,status:“NOT STARTED YET”, pct:2, steam:””, chars:[], regions:[], lore:”” },
-]
-},
-{ id:“detective”, name:“The Detective Chronicles Series”, theme:“theme-detective”, locked:false,
-games:[
-{ id:“dj1”, name:“Detective Jack 1”,         status:“NOT STARTED YET”, pct:3, steam:””, chars:[], regions:[], lore:”” },
-{ id:“dj2”, name:“Detective Jack 2: Year 1”, status:“NOT STARTED YET”, pct:2, steam:””, chars:[], regions:[], lore:”” },
-{ id:“dj3”, name:“Detective Jack 3”,         status:“NOT STARTED YET”, pct:2, steam:””, chars:[], regions:[], lore:”” },
-]
-},
-{ id:“descendant”, name:“The Descendant Series”, theme:“theme-descendant”, locked:true,
-games:[ { id:“desc1”, name:“Jackie Bonecroft: Descendant”, status:“NOT STARTED YET”, pct:3, steam:””, chars:[], regions:[], lore:”” } ]
-},
-{ id:“void”, name:“The Void Series”, theme:“theme-void”, locked:true,
-games:[ { id:“void1”, name:“Jack Bonecroft: Into a Void”, status:“NOT STARTED YET”, pct:3, steam:””, chars:[], regions:[], lore:”” } ]
-},
-{ id:“exiled”, name:“The Exiled Crown Series”, theme:“theme-exiled”, locked:true,
-games:[ { id:“exc1”, name:“Jack Bonecroft: Fall”, status:“NOT STARTED YET”, pct:3, steam:””, chars:[], regions:[], lore:”” } ]
-}
+  { id:"eternal", name:"The Eternal Conquest Series", theme:"theme-eternal", locked:false,
+    games:[
+      { id:"jb1", name:"Jack Bonecroft 1", status:"PREPARING SCRIPT & RESOURCES", pct:5, steam:"", chars:[], regions:[], lore:"" },
+      { id:"jb2", name:"Jack Bonecroft 2", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+      { id:"jb3", name:"Jack Bonecroft 3", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+      { id:"jb4", name:"Jack Bonecroft 4", status:"PRE-ALPHA STAGE", pct:60, steam:"",
+        chars:[
+          { name:"Lunara Mistwalker", alias:"", desc:"Determined and resourceful woman for a different dimension, navigating an unfamiliar world with intelligence and courage, driven by a mission to restore a fallen hero and confront an inevitable." },
+          { name:"L.U.M.I.R.", alias:"Lightweight Mobile Inventory & Response Unit", desc:"The AI assistant of Maelis Foster. It aids in navigation, translation, journaling, and quest marking. Although limited due to not being connected to the main core, Lumir provides humorous comments about travels and current events, along with tutorial guidance. It charges via sunlight." },
+        ],
+        regions:[
+          { name:"Valeria", desc:"Sunlight and abundance, trade and craftsmanship, a kingdom that built its prosperity on cooperation and maintains it the same way. Queen Rosamere Stormkeep governs a place that takes its own stated values seriously enough to actually live by them most of the time." },
+          { name:"Thronveil", desc:"Dense forest, arcane energy, a kingdom of Sylvari that moves at its own pace regardless of what the rest of the continent is doing. Queen Sylphira Nightbloom's realm is the most internally coherent of the four." },
+          { name:"Drakenscar", desc:"Crystal and fog, harsh terrain, a kingdom where the land itself shapes the people more visibly than anywhere else on the continent. Queen Varanya Darkthorn rules a place that produces resilience as its primary export." },
+          { name:"Voltaris", desc:"Smoke and precision, crystal-powered machinery, the relentless logic of a place that decided progress was the highest virtue. Queen Marcelline Steelforge's kingdom produces things no other region can." },
+        ],
+        lore:"Enter a mysterious and magical world as Lunara Mistwalker, an outsider pushed into a realm full of secrets, ancient histories, and hidden powers. Explore villages, libraries, and untamed landscapes as you uncover the stories of legendary figures and paths that could change the fate of the land and universe."
+      },
+      { id:"jb5", name:"Jack Bonecroft 5", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+      { id:"jb6", name:"Jack Bonecroft 6 — The Return", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+      { id:"jb7", name:"Jack Bonecroft 7 — Unification", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+    ]
+  },
+  { id:"detective", name:"The Detective Chronicles Series", theme:"theme-detective", locked:false,
+    games:[
+      { id:"dj1", name:"Detective Jack 1", status:"NOT STARTED YET", pct:3, steam:"", chars:[], regions:[], lore:"" },
+      { id:"dj2", name:"Detective Jack 2: Year 1", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+      { id:"dj3", name:"Detective Jack 3", status:"NOT STARTED YET", pct:2, steam:"", chars:[], regions:[], lore:"" },
+    ]
+  },
+  { id:"descendant", name:"The Descendant Series", theme:"theme-descendant", locked:true,
+    games:[ { id:"desc1", name:"Jackie Bonecroft: Descendant", status:"NOT STARTED YET", pct:3, steam:"", chars:[], regions:[], lore:"" } ]
+  },
+  { id:"void", name:"The Void Series", theme:"theme-void", locked:true,
+    games:[ { id:"void1", name:"Jack Bonecroft: Into a Void", status:"NOT STARTED YET", pct:3, steam:"", chars:[], regions:[], lore:"" } ]
+  },
+  { id:"exiled", name:"The Exiled Crown Series", theme:"theme-exiled", locked:true,
+    games:[ { id:"exc1", name:"Jack Bonecroft: Fall", status:"NOT STARTED YET", pct:3, steam:"", chars:[], regions:[], lore:"" } ]
+  }
 ];
 const SINGLE_SHOTS = [
-{ id:“vr”,     name:“VR Game”,             type:“VR Experience · J.B. Universe”, status:“NOT STARTED YET”, pct:0 },
-{ id:“stock”,  name:“Planet Stock Market”, type:“Strategy · J.B. Universe”,      status:“NOT STARTED YET”, pct:0 },
-{ id:“comedy”, name:“Un-Style Comedy”,     type:“Comedy RPG · J.B. Universe”,    status:“NOT STARTED YET”, pct:0 },
+  { id:"vr", name:"VR Game", type:"VR Experience · J.B. Universe", status:"NOT STARTED YET", pct:0 },
+  { id:"stock", name:"Planet Stock Market", type:"Strategy · J.B. Universe", status:"NOT STARTED YET", pct:0 },
+  { id:"comedy", name:"Un-Style Comedy", type:"Comedy RPG · J.B. Universe", status:"NOT STARTED YET", pct:0 },
 ];
 const OTHER_GAMES = [
-{ id:“tba1”, name:“Untitled Project”, type:“Genre TBA”, status:“NOT STARTED YET”, pct:0 },
+  { id:"tba1", name:"Untitled Project", type:"Genre TBA", status:"NOT STARTED YET", pct:0 },
 ];
 
-const canvas=document.getElementById(“fx-canvas”),ctx=canvas.getContext(“2d”);
+const canvas=document.getElementById("fx-canvas"),ctx=canvas.getContext("2d");
 let fxLoop=null;
 function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
-window.addEventListener(“resize”,resizeCanvas);resizeCanvas();
+window.addEventListener("resize",resizeCanvas);resizeCanvas();
 
 let eLines=[];
 function initEternal(){eLines=[];for(let i=0;i<22;i++){eLines.push({y:Math.random()*canvas.height,x:Math.random()*canvas.width,speed:0.25+Math.random()*0.45,width:60+Math.random()*180,opacity:0.15+Math.random()*0.28,thick:0.8+Math.random()*1.2});}}
-function drawEternal(){ctx.clearRect(0,0,canvas.width,canvas.height);eLines.forEach(l=>{l.x+=l.speed;if(l.x>canvas.width+l.width){l.x=-l.width-Math.random()*200;l.y=Math.random()*canvas.height;l.speed=0.25+Math.random()*0.45;l.width=60+Math.random()*180;l.opacity=0.15+Math.random()*0.28;}const gr=ctx.createLinearGradient(l.x,0,l.x+l.width,0);gr.addColorStop(0,“rgba(200,169,110,0)”);gr.addColorStop(0.3,`rgba(200,169,110,${l.opacity})`);gr.addColorStop(0.7,`rgba(220,190,130,${l.opacity})`);gr.addColorStop(1,“rgba(200,169,110,0)”);ctx.strokeStyle=gr;ctx.lineWidth=l.thick;ctx.globalAlpha=1;ctx.beginPath();ctx.moveTo(l.x,l.y);ctx.lineTo(l.x+l.width,l.y);ctx.stroke();});}
+function drawEternal(){ctx.clearRect(0,0,canvas.width,canvas.height);eLines.forEach(l=>{l.x+=l.speed;if(l.x>canvas.width+l.width){l.x=-l.width-Math.random()*200;l.y=Math.random()*canvas.height;l.speed=0.25+Math.random()*0.45;l.width=60+Math.random()*180;l.opacity=0.15+Math.random()*0.28;}const gr=ctx.createLinearGradient(l.x,0,l.x+l.width,0);gr.addColorStop(0,"rgba(200,169,110,0)");gr.addColorStop(0.3,`rgba(200,169,110,${l.opacity})`);gr.addColorStop(0.7,`rgba(220,190,130,${l.opacity})`);gr.addColorStop(1,"rgba(200,169,110,0)");ctx.strokeStyle=gr;ctx.lineWidth=l.thick;ctx.globalAlpha=1;ctx.beginPath();ctx.moveTo(l.x,l.y);ctx.lineTo(l.x+l.width,l.y);ctx.stroke();});}
 
 let rainDrops=[];
 function initRain(){rainDrops=Array.from({length:130},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,len:10+Math.random()*22,speed:4+Math.random()*6,opacity:.25+Math.random()*.35}));}
-function drawRain(){ctx.fillStyle=“rgba(22,18,14,.22)”;ctx.fillRect(0,0,canvas.width,canvas.height);ctx.strokeStyle=”#aa1111”;rainDrops.forEach(d=>{ctx.globalAlpha=d.opacity*.75;ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(d.x-d.len*.15,d.y+d.len);ctx.stroke();d.y+=d.speed;d.x-=d.speed*.15;if(d.y>canvas.height){d.y=-20;d.x=Math.random()*canvas.width;}});ctx.globalAlpha=1;}
+function drawRain(){ctx.fillStyle="rgba(22,18,14,.22)";ctx.fillRect(0,0,canvas.width,canvas.height);ctx.strokeStyle="#aa1111";rainDrops.forEach(d=>{ctx.globalAlpha=d.opacity*.75;ctx.lineWidth=.9;ctx.beginPath();ctx.moveTo(d.x,d.y);ctx.lineTo(d.x-d.len*.15,d.y+d.len);ctx.stroke();d.y+=d.speed;d.x-=d.speed*.15;if(d.y>canvas.height){d.y=-20;d.x=Math.random()*canvas.width;}});ctx.globalAlpha=1;}
 
 let mistP=[];
 function initMist(){mistP=Array.from({length:55},()=>({x:Math.random()*canvas.width,y:canvas.height*.4+Math.random()*canvas.height*.6,r:60+Math.random()*130,opacity:.02+Math.random()*.055,vx:(Math.random()-.5)*.3,vy:-Math.random()*.2}));}
-function drawMist(){ctx.clearRect(0,0,canvas.width,canvas.height);mistP.forEach(p=>{const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,`rgba(150,80,220,${p.opacity})`);g.addColorStop(1,“transparent”);ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.y<-p.r){p.y=canvas.height+p.r;p.x=Math.random()*canvas.width;}});if(Math.random()<.004){const lx=Math.random()*canvas.width;ctx.strokeStyle=“rgba(200,150,255,.65)”;ctx.lineWidth=1;ctx.globalAlpha=.7;ctx.beginPath();ctx.moveTo(lx,0);let y=0,lcx=lx;while(y<canvas.height*.7){y+=20+Math.random()*30;lcx+=(Math.random()-.5)*40;ctx.lineTo(lcx,y);}ctx.stroke();ctx.globalAlpha=1;}}
+function drawMist(){ctx.clearRect(0,0,canvas.width,canvas.height);mistP.forEach(p=>{const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);g.addColorStop(0,`rgba(150,80,220,${p.opacity})`);g.addColorStop(1,"transparent");ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.y<-p.r){p.y=canvas.height+p.r;p.x=Math.random()*canvas.width;}});if(Math.random()<.004){const lx=Math.random()*canvas.width;ctx.strokeStyle="rgba(200,150,255,.65)";ctx.lineWidth=1;ctx.globalAlpha=.7;ctx.beginPath();ctx.moveTo(lx,0);let y=0,lcx=lx;while(y<canvas.height*.7){y+=20+Math.random()*30;lcx+=(Math.random()-.5)*40;ctx.lineTo(lcx,y);}ctx.stroke();ctx.globalAlpha=1;}}
 
 let stars=[],voidP=[];
 function initVoid(){stars=Array.from({length:200},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*1.5,opacity:Math.random(),pulse:Math.random()*Math.PI*2}));voidP=Array.from({length:35},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:1+Math.random()*2,opacity:.3+Math.random()*.5}));}
-function drawVoid(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.pulse+=.02;ctx.globalAlpha=(.3+.7*Math.abs(Math.sin(s.pulse)))*s.opacity;ctx.fillStyle=”#5bc8d8”;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();});voidP.forEach(p=>{ctx.globalAlpha=p.opacity;const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3);g.addColorStop(0,“rgba(91,200,216,.6)”);g.addColorStop(1,“transparent”);ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;});ctx.globalAlpha=1;}
+function drawVoid(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{s.pulse+=.02;ctx.globalAlpha=(.3+.7*Math.abs(Math.sin(s.pulse)))*s.opacity;ctx.fillStyle="#5bc8d8";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();});voidP.forEach(p=>{ctx.globalAlpha=p.opacity;const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3);g.addColorStop(0,"rgba(91,200,216,.6)");g.addColorStop(1,"transparent");ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>canvas.width)p.vx*=-1;if(p.y<0||p.y>canvas.height)p.vy*=-1;});ctx.globalAlpha=1;}
 
-const RUNES=[“ᚠ”,“ᚢ”,“ᚦ”,“ᚨ”,“ᚱ”,“ᚲ”,“ᚷ”,“ᚹ”,“ᚺ”,“ᚾ”,“ᛁ”,“ᛃ”,“ᛇ”,“ᛈ”,“ᛉ”,“ᛊ”,“ᛏ”,“ᛒ”,“ᛖ”,“ᛗ”,“ᛚ”,“ᛜ”,“ᛞ”,“ᛟ”];
+const RUNES=["\u16a0","\u16a2","\u16a6","\u16a8","\u16b1","\u16b2","\u16b7","\u16b9","\u16ba","\u16be","\u16c1","\u16c3","\u16c7","\u16c8","\u16c9","\u16ca","\u16cf","\u16d2","\u16d6","\u16d7","\u16da","\u16dc","\u16de","\u16df"];
 let runeP=[];
 function initRunes(){runeP=Array.from({length:28},newRune);}
 function newRune(){return{x:Math.random()*canvas.width,y:canvas.height+20,char:RUNES[Math.floor(Math.random()*RUNES.length)],size:14+Math.random()*22,vy:-(0.4+Math.random()*.8),opacity:0,maxO:.15+Math.random()*.35,life:0,maxLife:200+Math.random()*300};}
-function drawRunes(){ctx.clearRect(0,0,canvas.width,canvas.height);runeP.forEach((r,i)=>{r.life++;r.y+=r.vy;r.opacity=r.life<30?r.maxO*(r.life/30):r.life>r.maxLife-30?r.maxO*((r.maxLife-r.life)/30):r.maxO;ctx.globalAlpha=r.opacity;ctx.fillStyle=”#6dc87a”;ctx.font=`${r.size}px serif`;ctx.fillText(r.char,r.x,r.y);if(r.life>=r.maxLife)runeP[i]=newRune();});ctx.globalAlpha=1;}
+function drawRunes(){ctx.clearRect(0,0,canvas.width,canvas.height);runeP.forEach((r,i)=>{r.life++;r.y+=r.vy;r.opacity=r.life<30?r.maxO*(r.life/30):r.life>r.maxLife-30?r.maxO*((r.maxLife-r.life)/30):r.maxO;ctx.globalAlpha=r.opacity;ctx.fillStyle="#6dc87a";ctx.font=`${r.size}px serif`;ctx.fillText(r.char,r.x,r.y);if(r.life>=r.maxLife)runeP[i]=newRune();});ctx.globalAlpha=1;}
 
-const FX_MAP={“theme-eternal”:{init:initEternal,draw:drawEternal},“theme-detective”:{init:initRain,draw:drawRain},“theme-descendant”:{init:initMist,draw:drawMist},“theme-void”:{init:initVoid,draw:drawVoid},“theme-exiled”:{init:initRunes,draw:drawRunes}};
-function startFX(theme){stopFX();const fx=FX_MAP[theme];if(!fx){canvas.classList.remove(“show”);return;}fx.init();canvas.classList.add(“show”);function loop(){fx.draw();fxLoop=requestAnimationFrame(loop);}fxLoop=requestAnimationFrame(loop);}
-function stopFX(){if(fxLoop){cancelAnimationFrame(fxLoop);fxLoop=null;}ctx.clearRect(0,0,canvas.width,canvas.height);canvas.classList.remove(“show”);}
+const FX_MAP={"theme-eternal":{init:initEternal,draw:drawEternal},"theme-detective":{init:initRain,draw:drawRain},"theme-descendant":{init:initMist,draw:drawMist},"theme-void":{init:initVoid,draw:drawVoid},"theme-exiled":{init:initRunes,draw:drawRunes}};
+function startFX(theme){stopFX();const fx=FX_MAP[theme];if(!fx){canvas.classList.remove("show");return;}fx.init();canvas.classList.add("show");function loop(){fx.draw();fxLoop=requestAnimationFrame(loop);}fxLoop=requestAnimationFrame(loop);}
+function stopFX(){if(fxLoop){cancelAnimationFrame(fxLoop);fxLoop=null;}ctx.clearRect(0,0,canvas.width,canvas.height);canvas.classList.remove("show");}
 
-let currentTheme=“theme-default”,hoverTimeout=null;
+let currentTheme="theme-default",hoverTimeout=null;
 function setTheme(theme){document.body.className=theme;currentTheme=theme;startFX(theme);}
 function hoverTheme(theme){clearTimeout(hoverTimeout);document.body.className=theme;startFX(theme);}
 function leaveTheme(){clearTimeout(hoverTimeout);hoverTimeout=setTimeout(()=>{document.body.className=currentTheme;startFX(currentTheme);},120);}
 
-function toggleDrawer(){document.getElementById(“nav-drawer”).classList.toggle(“open”);}
-function closeDrawer(){document.getElementById(“nav-drawer”).classList.remove(“open”);}
+function toggleDrawer(){document.getElementById("nav-drawer").classList.toggle("open");}
+function closeDrawer(){document.getElementById("nav-drawer").classList.remove("open");}
 function updateDrawerActive(page){
-document.querySelectorAll(”.nav-drawer .nav-tab”).forEach(t=>t.classList.remove(“active”));
-const dt=document.getElementById(“dtab-”+page);if(dt)dt.classList.add(“active”);
+  document.querySelectorAll(".nav-drawer .nav-tab").forEach(t=>t.classList.remove("active"));
+  const dt=document.getElementById("dtab-"+page);if(dt)dt.classList.add("active");
 }
 
-let previousPage=“jbu”;
+let previousPage="jbu";
 function showPage(page){
-document.querySelectorAll(”.page”).forEach(p=>p.classList.remove(“active”));
-document.querySelectorAll(”.nav-tabs .nav-tab”).forEach(t=>t.classList.remove(“active”));
-document.getElementById(“page-”+page).classList.add(“active”);
-const tab=document.getElementById(“tab-”+page);if(tab)tab.classList.add(“active”);
-updateDrawerActive(page);
-if(page!==“game”)previousPage=page;
-window.scrollTo(0,0);
-if([“home”,“other”,“about”,“contact”,“jbu”].includes(page))setTheme(“theme-default”);
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".nav-tabs .nav-tab").forEach(t=>t.classList.remove("active"));
+  document.getElementById("page-"+page).classList.add("active");
+  const tab=document.getElementById("tab-"+page);if(tab)tab.classList.add("active");
+  updateDrawerActive(page);
+  if(page!=="game")previousPage=page;
+  window.scrollTo(0,0);
+  if(["home","other","about","contact","jbu"].includes(page))setTheme("theme-default");
 }
 
 function buildSeriesList(){
-document.getElementById(“series-list”).innerHTML=SERIES.map(s=>` <div class="series-item" id="series-${s.id}"> <div class="series-header" onclick="toggleSeries('${s.id}')" onmouseenter="hoverTheme('${s.theme}')" onmouseleave="leaveTheme()"> <div class="series-name">${s.name}</div> <span class="series-chevron">&#9660;</span> </div> <div class="series-games"> ${s.locked ?`<div class="game-row" onclick="showSeriesLocked()"><div class="game-row-name" style="color:var(--text-dim);font-style:italic;">YOU ARE NOT READY TO SEE THE MORE</div></div>` :s.games.map(g=>`<div class="game-row" onclick="openGame('${g.id}','${s.id}')"><div class="game-row-name">${g.name}</div><div class=“game-row-status${g.status===“READY TO PLAY”?” ready”:””}”>${g.status}</div></div>`).join("") } </div> </div>`).join(””);
+  document.getElementById("series-list").innerHTML=SERIES.map(s=>`
+    <div class="series-item" id="series-${s.id}">
+      <div class="series-header" onclick="toggleSeries('${s.id}')" onmouseenter="hoverTheme('${s.theme}')" onmouseleave="leaveTheme()">
+        <div class="series-name">${s.name}</div>
+        <span class="series-chevron">&#9660;</span>
+      </div>
+      <div class="series-games">
+        ${s.locked
+          ?`<div class="game-row" onclick="showSeriesLocked()"><div class="game-row-name" style="color:var(--text-dim);font-style:italic;">YOU ARE NOT READY TO SEE THE MORE</div></div>`
+          :s.games.map(g=>`<div class="game-row" onclick="openGame('${g.id}','${s.id}')"><div class="game-row-name">${g.name}</div><div class="game-row-status${g.status==="READY TO PLAY"?" ready":""}">${g.status}</div></div>`).join("")
+        }
+      </div>
+    </div>`).join("");
 }
 function toggleSeries(id){
-const el=document.getElementById(“series-”+id),wasOpen=el.classList.contains(“open”);
-document.querySelectorAll(”.series-item”).forEach(i=>i.classList.remove(“open”,“theme-hover”));
-if(!wasOpen){el.classList.add(“open”,“theme-hover”);const s=SERIES.find(x=>x.id===id);setTheme(s.theme);}
-else setTheme(“theme-default”);
+  const el=document.getElementById("series-"+id),wasOpen=el.classList.contains("open");
+  document.querySelectorAll(".series-item").forEach(i=>i.classList.remove("open","theme-hover"));
+  if(!wasOpen){el.classList.add("open","theme-hover");const s=SERIES.find(x=>x.id===id);setTheme(s.theme);}
+  else setTheme("theme-default");
 }
-function buildSinglesList(){const el=document.getElementById(“singles-list-jbu”);if(!el)return;el.innerHTML=SINGLE_SHOTS.map(g=>`<div class="other-card" onclick="showLocked()"><div><div class="other-card-name">${g.name}</div><div class="other-card-type">${g.type}</div></div><div class="game-row-status">${g.status}</div></div>`).join(””);}
-function buildOtherList(){document.getElementById(“other-list”).innerHTML=OTHER_GAMES.map(g=>`<div class="other-card" onclick="showLocked()"><div><div class="other-card-name">${g.name}</div><div class="other-card-type">${g.type}</div></div><div class="game-row-status">${g.status}</div></div>`).join(””);}
+function buildSinglesList(){const el=document.getElementById("singles-list-jbu");if(!el)return;el.innerHTML=SINGLE_SHOTS.map(g=>`<div class="other-card" onclick="showLocked()"><div><div class="other-card-name">${g.name}</div><div class="other-card-type">${g.type}</div></div><div class="game-row-status">${g.status}</div></div>`).join("");}
+function buildOtherList(){document.getElementById("other-list").innerHTML=OTHER_GAMES.map(g=>`<div class="other-card" onclick="showLocked()"><div><div class="other-card-name">${g.name}</div><div class="other-card-type">${g.type}</div></div><div class="game-row-status">${g.status}</div></div>`).join("");}
 
 function openGame(gameId,seriesId){
-const series=SERIES.find(s=>s.id===seriesId),game=series.games.find(g=>g.id===gameId);
-const hasContent=game.chars.length>0||game.lore||(game.regions&&game.regions.length>0);
-if(!hasContent){showLocked();return;}
-setTheme(series.theme);
-const isReady=game.status===“READY TO PLAY”;
-const tabs=[];
-if(game.lore)tabs.push({id:“tab-about”,label:“About”,active:true});
-if(game.chars.length)tabs.push({id:“tab-chars”,label:“Characters”,active:!game.lore});
-if(game.regions&&game.regions.length)tabs.push({id:“tab-geo”,label:“Geographical Overview”,active:false});
-document.getElementById(“game-content”).innerHTML=` <div class="game-title-big fadein">${game.name}</div> <div class="game-series-tag fadein">${series.name}</div> <div class="game-rule fadein"></div> <div class="status-block fadein"> <div class="status-label">Development Status</div> <div class="status-value${isReady?" ready":""}">${game.status}</div> <div class="progress-track"><div class="progress-fill" style="width:0%" data-pct="${game.pct}%"></div></div> <div class="progress-pct">${game.pct}% complete</div> ${isReady&&game.steam?`<a class="steam-link" href="${game.steam}" target="_blank">▶ Available on Steam</a>`:""} </div> ${tabs.length?`
-<div class="game-tabs fadein">${tabs.map(t=>`<button class="game-tab${t.active?" active":""}" onclick="switchGameTab(this,'${t.id}')">${t.label}</button>`).join(””)}</div>
-<div id=“tab-about” class=“game-tab-content${game.lore?” active”:””}”><div class="game-section-body">${game.lore||””}</div></div>
-<div id=“tab-chars” class=“game-tab-content${!game.lore&&game.chars.length?” active”:””}”><div class="char-grid">${game.chars.map(c=>`<div class="char-card"><div class="char-name">${c.name}</div>${c.alias?`<div class="char-alias">${c.alias}</div>`:""}<div class="char-desc">${c.desc}</div></div>`).join(””)}</div></div>
-<div id="tab-geo" class="game-tab-content"><div class="geo-grid">${(game.regions||[]).map(r=>`<div class="geo-card"><div class="geo-name">${r.name}</div>${r.desc?`<div class="geo-desc">${r.desc}</div>`:""}</div>`).join(””)}</div></div>`:""} `;
-document.getElementById(“game-back-btn”).onclick=()=>{showPage(“jbu”);setTheme(series.theme);};
-showPage(“game”);
-setTimeout(()=>document.querySelectorAll(”.progress-fill”).forEach(el=>el.style.width=el.dataset.pct),200);
+  const series=SERIES.find(s=>s.id===seriesId),game=series.games.find(g=>g.id===gameId);
+  const hasContent=game.chars.length>0||game.lore||(game.regions&&game.regions.length>0);
+  if(!hasContent){showLocked();return;}
+  setTheme(series.theme);
+  const isReady=game.status==="READY TO PLAY";
+  const tabs=[];
+  if(game.lore)tabs.push({id:"tab-about",label:"About",active:true});
+  if(game.chars.length)tabs.push({id:"tab-chars",label:"Characters",active:!game.lore});
+  if(game.regions&&game.regions.length)tabs.push({id:"tab-geo",label:"Geographical Overview",active:false});
+  document.getElementById("game-content").innerHTML=`
+    <div class="game-title-big fadein">${game.name}</div>
+    <div class="game-series-tag fadein">${series.name}</div>
+    <div class="game-rule fadein"></div>
+    <div class="status-block fadein">
+      <div class="status-label">Development Status</div>
+      <div class="status-value${isReady?" ready":""}">${game.status}</div>
+      <div class="progress-track"><div class="progress-fill" style="width:0%" data-pct="${game.pct}%"></div></div>
+      <div class="progress-pct">${game.pct}% complete</div>
+      ${isReady&&game.steam?`<a class="steam-link" href="${game.steam}" target="_blank">&#9654; Available on Steam</a>`:""}
+    </div>
+    ${tabs.length?`
+    <div class="game-tabs fadein">${tabs.map(t=>`<button class="game-tab${t.active?" active":""}" onclick="switchGameTab(this,'${t.id}')">${t.label}</button>`).join("")}</div>
+    <div id="tab-about" class="game-tab-content${game.lore?" active":""}"><div class="game-section-body">${game.lore||""}</div></div>
+    <div id="tab-chars" class="game-tab-content${!game.lore&&game.chars.length?" active":""}"><div class="char-grid">${game.chars.map(c=>`<div class="char-card"><div class="char-name">${c.name}</div>${c.alias?`<div class="char-alias">${c.alias}</div>`:""}<div class="char-desc">${c.desc}</div></div>`).join("")}</div></div>
+    <div id="tab-geo" class="game-tab-content"><div class="geo-grid">${(game.regions||[]).map(r=>`<div class="geo-card"><div class="geo-name">${r.name}</div>${r.desc?`<div class="geo-desc">${r.desc}</div>`:""}</div>`).join("")}</div></div>`:""}
+  `;
+  document.getElementById("game-back-btn").onclick=()=>{showPage("jbu");setTheme(series.theme);};
+  showPage("game");
+  setTimeout(()=>document.querySelectorAll(".progress-fill").forEach(el=>el.style.width=el.dataset.pct),200);
 }
 function switchGameTab(btn,tabId){
-btn.closest(”.game-tabs”).querySelectorAll(”.game-tab”).forEach(b=>b.classList.remove(“active”));
-btn.classList.add(“active”);
-document.querySelectorAll(”.game-tab-content”).forEach(t=>t.classList.remove(“active”));
-document.getElementById(tabId).classList.add(“active”);
+  btn.closest(".game-tabs").querySelectorAll(".game-tab").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll(".game-tab-content").forEach(t=>t.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
 }
 
 function copyEmail(){
-const email=“marvinoscompany@gmail.com”;
-const el=document.getElementById(“email-copied”);
-navigator.clipboard.writeText(email).then(()=>{el.classList.add(“show”);setTimeout(()=>el.classList.remove(“show”),2500);}).catch(()=>{const ta=document.createElement(“textarea”);ta.value=email;ta.style.cssText=“position:fixed;opacity:0;”;document.body.appendChild(ta);ta.select();document.execCommand(“copy”);document.body.removeChild(ta);el.classList.add(“show”);setTimeout(()=>el.classList.remove(“show”),2500);});
+  const email="marvinoscompany@gmail.com";
+  const el=document.getElementById("email-copied");
+  navigator.clipboard.writeText(email).then(()=>{el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2500);}).catch(()=>{const ta=document.createElement("textarea");ta.value=email;ta.style.cssText="position:fixed;opacity:0;";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2500);});
 }
 
-function showLocked(){document.getElementById(“locked-overlay”).classList.add(“show”);}
-function closeLocked(){document.getElementById(“locked-overlay”).classList.remove(“show”);}
-function showSeriesLocked(){document.getElementById(“series-locked-overlay”).classList.add(“show”);}
-function closeSeriesLocked(){document.getElementById(“series-locked-overlay”).classList.remove(“show”);}
+function showLocked(){document.getElementById("locked-overlay").classList.add("show");}
+function closeLocked(){document.getElementById("locked-overlay").classList.remove("show");}
+function showSeriesLocked(){document.getElementById("series-locked-overlay").classList.add("show");}
+function closeSeriesLocked(){document.getElementById("series-locked-overlay").classList.remove("show");}
 
 buildSeriesList();buildSinglesList();buildOtherList();
+
 </script>
 
 </body>
