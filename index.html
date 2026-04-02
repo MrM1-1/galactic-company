@@ -39,7 +39,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
 .nav-tab.active::after{transform:scaleX(1);}
 .nav-tab:hover{color:var(–text);}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;}
-.nav-hamburger span{width:22px;height:2px;background:var(–text-dim);display:block;transition:all 0.3s;}
+.nav-hamburger span{width:22px;height:2px;background:#7a7580;background:var(–text-dim);display:block;transition:all 0.3s;}
 .nav-drawer{display:none;flex-direction:column;border-top:1px solid var(–border);}
 .nav-drawer.open{display:flex;}
 .nav-drawer .nav-tab{height:48px;padding:0 1.5rem;border-bottom:1px solid rgba(255,255,255,0.04);}
@@ -61,8 +61,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
 @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .home-logo{height:120px;filter:drop-shadow(0 0 28px rgba(204,51,51,0.55));}
 .home-eyebrow{font-family:var(–font-ui);font-size:0.62rem;letter-spacing:0.4em;text-transform:uppercase;color:#cc3333;}
-.home-title{font-family:var(–font-title);font-size:clamp(1.6rem,4.5vw,3.2rem);font-weight:700;color:var(–text);line-height:1.2;}
-.home-title span{color:var(–accent);}
+.home-title{font-family:var(–font-title);font-size:clamp(1.6rem,4.5vw,3.2rem);font-weight:700;color:#d4cfc8;color:var(–text);line-height:1.2;}
+.home-title span{color:#c8a96e;color:var(–accent);}.title-main{color:var(–text);}.title-sub{color:var(–accent) !important;}
 .home-divider{width:130px;height:1px;background:linear-gradient(90deg,transparent,var(–accent2),transparent);}
 .home-owner-card{display:inline-flex;align-items:center;gap:1.2rem;border:1px solid var(–border);background:var(–panel);padding:0.6rem 2rem;}
 .home-owner-label{font-family:var(–font-ui);font-size:0.58rem;letter-spacing:0.25em;text-transform:uppercase;color:var(–text-dim);}
@@ -197,10 +197,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
       <button class="nav-tab"        id="tab-about"   onclick="showPage('about')">About Us</button>
       <button class="nav-tab"        id="tab-contact" onclick="showPage('contact')">Contact</button>
     </div>
+    <span class="nav-owner">Owner: <span>Mr. M</span></span>
     <button class="nav-hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
-    <span class="nav-owner">Owner: <span>Mr. M</span></span>
   </div>
   <div class="nav-drawer" id="nav-drawer">
     <button class="nav-tab" id="dtab-home"    onclick="showPage('home');closeDrawer()">Home</button>
