@@ -5,11 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galactic Company Core Division</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Special+Elite&family=Spectral:ital,wght@0,400;0,600;1,400&family=Exo+2:wght@300;400;600&family=Crimson+Pro:ital,wght@0,400;1,400&family=MedievalSharp&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Special+Elite&family=Spectral:ital,wght@0,400;0,600;1,400&family=Exo+2:wght@300;400;600&family=Crimson+Pro:ital,wght@0,400;1,400&family=Metamorphous&family=Uncial+Antiqua&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#080810;--panel:#111120;--border:#222238;--accent:#c8a96e;--accent2:#8b6f3a;--accent-glow:rgba(200,169,110,0.15);--text:#d4cfc8;--text-dim:#7a7580;--font-body:"EB Garamond",serif;--font-title:"Cinzel Decorative",serif;--font-ui:"Cinzel",serif;}
 .theme-default  {--accent:#c8a96e;--accent2:#8b6f3a;--accent-glow:rgba(200,169,110,0.12);--bg:#080810;--panel:#111120;--border:#222238;--font-body:"EB Garamond",serif;--font-title:"Cinzel Decorative",serif;}
-.theme-eternal  {--accent:#cc2200;--accent2:#7a1000;--accent-glow:rgba(200,30,0,0.2);--bg:#0a0500;--panel:#130600;--border:#2a0800;--font-body:"EB Garamond",serif;--font-title:"MedievalSharp",serif;}
+.theme-eternal  {--accent:#cc2200;--accent2:#7a1000;--accent-glow:rgba(200,30,0,0.2);--bg:#0a0500;--panel:#130600;--border:#2a0800;--font-body:"EB Garamond",serif;--font-title:"Metamorphous",cursive;}
 .theme-detective{--accent:#c8b870;--accent2:#6b4e1a;--accent-glow:rgba(180,150,80,0.2);--bg:#0a0906;--panel:#100e08;--border:#2a2010;--font-body:"Special Elite",cursive;--font-title:"Special Elite",cursive;}
 .theme-descendant{--accent:#b07fd4;--accent2:#5a3475;--accent-glow:rgba(160,100,210,0.2);--bg:#080610;--panel:#110d18;--border:#261640;--font-body:"Spectral",serif;--font-title:"Spectral",serif;}
 .theme-void     {--accent:#5bc8d8;--accent2:#1a6070;--accent-glow:rgba(80,190,210,0.2);--bg:#050810;--panel:#080e14;--border:#102030;--font-body:"Exo 2",sans-serif;--font-title:"Exo 2",sans-serif;}
@@ -84,7 +86,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
 .series-item.theme-hover{border-color:var(–accent);box-shadow:0 0 24px var(–accent-glow);}
 .series-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.4rem;cursor:pointer;transition:background 0.3s;}
 .series-header:hover{background:rgba(255,255,255,0.02);}
-.series-name{font-family:var(–font-ui);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(–accent);transition:color 0.8s;}
+.series-name{font-family:var(–font-title);font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(–accent);transition:color 0.8s,font-family 0.3s;}
 .series-chevron{color:var(–text-dim);font-size:0.8rem;transition:transform 0.3s;}
 .series-item.open .series-chevron{transform:rotate(180deg);}
 .series-games{display:none;border-top:1px solid var(–border);}
@@ -176,6 +178,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,8,16,0.95)
 </head>
 <body class="theme-default">
 <canvas id="fx-canvas"></canvas>
+<!-- font preload triggers -->
+<div style="position:absolute;opacity:0;pointer-events:none;font-size:1px;">
+  <span style="font-family:'MedievalSharp',serif;">.</span>
+  <span style="font-family:'Uncial Antiqua',cursive;">.</span>
+  <span style="font-family:'Special Elite',cursive;">.</span>
+  <span style="font-family:'Spectral',serif;">.</span>
+  <span style="font-family:'Exo 2',sans-serif;">.</span>
+  <span style="font-family:'Crimson Pro',serif;">.</span>
+</div>
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" onclick="showPage('home');closeDrawer()">
